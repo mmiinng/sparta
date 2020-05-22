@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
+    <title>원페이지 쇼핑몰</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- JQuery를 import 합니다 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+    <style>
+        * {
+            font-family: 'Hi Melody', cursive;
+        }
+
+        .btn {
+            margin-top: 5px;
+        }
+
+        .wrap {
+            width: 5000px;
+            margin: 10px auto;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        function dw1() {
+            $.Bajax({
+                type: "get",
+                url: "https://api.manana.kr/exchange/rate.json",
+                data: {},
+                success: function (response) {
+                    let dtw = response"[0"]
+                    $('cur').append(dtw);
+                }
+
+        function blalert() {
+                let blname = $('#name').val();
+                let bladd=$('#add').val();
+                let blphone=$('#phone').val();
+
+                if(blname == "") {
+                alert('이름을 입력해주세요');
+                return;
+            }
+
+            if (bladd == "") {
+                alert('주소를 입력해주세요');
+                return;
+            }
+            if (blphone == "") {
+                alert('전화번호를 입력해주세요');
+                return;
+            }
+            // 전화번호 형식
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <h1 class=" wrap"> 초코바 </h1>
+        <p id = "cur"></p>
+    </div>
+    <div>
+        <div class="name">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">주문자 이름</span>
+                <input type="text" id="name"> </input>
+            </div>
+        </div>
+        <div class="add">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">주소</span>
+                <input type="text" id="add"> </input>
+            </div>
+        </div>
+        <div class="phone">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">전화번호</span>
+                <input type="text" id="phone"> </input>
+            </div>
+        </div>
+        <p class="btn">
+            <button onclick="blalert()" type="button" class="btn btn-primary btn-lg">주문하기</button>
+        </p>
+
+</body>
+
+
+</html>
